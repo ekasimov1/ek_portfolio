@@ -1,0 +1,19 @@
+body {
+  background-color: #f6f5f5;
+  padding: 0px;
+  margin: 0px;
+}
+
+.arrow {
+  animation: a9 0.5s infinite linear alternate;
+  opacity: 0.9;
+}
+
+@keyframes a9 {
+  0% {
+    transform: translateY(-3px);
+  }
+  100% {
+    transform: translateY(3px);
+  }
+}
