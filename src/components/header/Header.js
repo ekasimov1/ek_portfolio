@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import Grid from "@mui/material/Grid";
 import Container from "@mui/material/Container";
 import Avatar from "@mui/material/Avatar";
@@ -10,11 +10,14 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import DoubleArrowIcon from "@mui/icons-material/DoubleArrow";
 import Button from "@mui/material/Button";
 import { Box } from "@mui/material";
-import Slide from "@mui/material/Slide";
-import Fade from "@mui/material/Fade";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 export default function Header() {
-  const containerRef = useRef(null);
+  useEffect(() => {
+    Aos.init({ duration: 1000 });
+  }, []);
+
   return (
     <Box>
       <Box
@@ -26,90 +29,71 @@ export default function Header() {
         display="flex"
         alignItems="center"
         overflow="hidden"
-        ref={containerRef}
       >
-        <Fade in={true} {...(true ? { timeout: 1000 } : {})}>
-          <div>
-            <Slide
-              direction="up"
-              in={true}
-              container={containerRef.current}
-              {...(true ? { timeout: 800 } : {})}
+        <Container>
+          <Grid container data-aos="fade-up" data-aos-once>
+            <Grid
+              item
+              xs={12}
+              md={6}
+              display="flex"
+              justifyContent="center"
+              mt={3}
             >
-              <Container>
-                <Grid container>
-                  <Grid
-                    item
-                    xs={12}
-                    md={6}
-                    display="flex"
-                    justifyContent="center"
-                    mt={3}
-                  >
-                    <Avatar
-                      variant="circular"
-                      alt="Eugene Kasimov"
-                      src={myPicture}
-                      sx={{
-                        height: { sm: 350, xs: 250 },
-                        width: { sm: 350, xs: 250 },
-                      }}
-                    />
-                  </Grid>
+              <Avatar
+                variant="circular"
+                alt="Eugene Kasimov"
+                src={myPicture}
+                sx={{
+                  height: { sm: 350, xs: 250 },
+                  width: { sm: 350, xs: 250 },
+                }}
+              />
+            </Grid>
 
-                  <Grid
-                    item
-                    xs={12}
-                    md={6}
-                    textAlign={{ xs: "center", md: "start" }}
-                    margin="auto"
-                  >
-                    <Typography
-                      variant="overline"
-                      gutterBottom
-                      mt={{ xs: 5, md: 0 }}
-                      sx={{ color: "text.secondary" }}
-                      fontSize="1.2em"
-                    >
-                      Hi there! I'm
-                    </Typography>
-                    <Typography
-                      variant="h4"
-                      gutterBottom
-                      sx={{ color: "#1687A7" }}
-                    >
-                      Eugene Kasimov
-                    </Typography>
-                    <Typography
-                      variant="body1"
-                      component={"span"}
-                      sx={{ color: "text.secondary" }}
-                      gutterBottom
-                    >
-                      A Front-End Web Developer passionate about creating
-                      interactive applications and experiences on the web.
-                    </Typography>
-                    <Stack
-                      spacing={3}
-                      direction="row"
-                      mt={4}
-                      justifyContent={{ xs: "center", md: "start" }}
-                    >
-                      <Button variant="outlined" sx={{ color: "#1687A7" }}>
-                        RESUME
-                      </Button>
-                      <LinkedInIcon
-                        fontSize="large"
-                        sx={{ color: "#1687A7" }}
-                      />
-                      <GitHubIcon fontSize="large" sx={{ color: "#1687A7" }} />
-                    </Stack>
-                  </Grid>
-                </Grid>
-              </Container>
-            </Slide>
-          </div>
-        </Fade>
+            <Grid
+              item
+              xs={12}
+              md={6}
+              textAlign={{ xs: "center", md: "start" }}
+              margin="auto"
+            >
+              <Typography
+                variant="overline"
+                gutterBottom
+                mt={{ xs: 5, md: 0 }}
+                sx={{ color: "text.secondary" }}
+                fontSize="1.2em"
+              >
+                Hi there! I'm
+              </Typography>
+              <Typography variant="h4" gutterBottom sx={{ color: "#1687A7" }}>
+                Eugene Kasimov
+              </Typography>
+              <Typography
+                variant="body1"
+                component={"span"}
+                sx={{ color: "text.secondary" }}
+                gutterBottom
+              >
+                A Front-End Web Developer passionate about creating interactive
+                applications and experiences on the web.
+              </Typography>
+              <Stack
+                spacing={3}
+                direction="row"
+                mt={4}
+                justifyContent={{ xs: "center", md: "start" }}
+              >
+                <Button variant="outlined" sx={{ color: "#1687A7" }}>
+                  RESUME
+                </Button>
+                <LinkedInIcon fontSize="large" sx={{ color: "#1687A7" }} />
+                <GitHubIcon fontSize="large" sx={{ color: "#1687A7" }} />
+              </Stack>
+            </Grid>
+          </Grid>
+        </Container>
       </Box>
       <Box
         sx={{

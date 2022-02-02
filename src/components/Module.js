@@ -1,11 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import Paper from "@mui/material/Paper";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 export default function Module(props) {
+  useEffect(() => {
+    Aos.init({ duration: 1000 });
+  }, []);
   return (
-    <Grid container justifyContent="center" alignItems="center" mb={15}>
+    <Grid
+      data-aos="fade-up"
+      data-aos-once
+      container
+      justifyContent="center"
+      alignItems="center"
+      mb={15}
+    >
       <Grid container justifyContent="start" display="inline">
         <Typography
           pb={4}
