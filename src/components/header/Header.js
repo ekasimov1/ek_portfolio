@@ -9,11 +9,11 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import DoubleArrowIcon from "@mui/icons-material/DoubleArrow";
 import Button from "@mui/material/Button";
-import { Box } from "@mui/material";
+import { Box, Link } from "@mui/material";
 import Aos from "aos";
 import "aos/dist/aos.css";
 
-export default function Header() {
+export default function Header(props) {
   useEffect(() => {
     Aos.init({ duration: 1000 });
   }, []);
@@ -21,6 +21,7 @@ export default function Header() {
   return (
     <Box>
       <Box
+        id={props.id}
         sx={{
           minHeight: { md: "90vh" },
           mb: { xs: "75px", md: "0" },
@@ -68,16 +69,34 @@ export default function Header() {
                 Hi there! I'm
               </Typography>
               <Typography variant="h4" gutterBottom sx={{ color: "#1687A7" }}>
-                Eugene Kasimov
+                Eugene
+                <Typography
+                  variant="h4"
+                  component={"span"}
+                  sx={{ color: "#276678" }}
+                >
+                  {" "}
+                  Kasimov{" "}
+                </Typography>
               </Typography>
               <Typography
                 variant="body1"
                 component={"span"}
                 sx={{ color: "text.secondary" }}
                 gutterBottom
+                fontSize="1.1em"
               >
-                A Front-End Web Developer passionate about creating interactive
-                applications and experiences on the web.
+                A{" "}
+                <Typography
+                  variant="body1"
+                  component={"span"}
+                  sx={{ color: "#1687A7" }}
+                  fontSize="1.1em"
+                >
+                  Front-End Web Developer
+                </Typography>{" "}
+                passionate about creating interactive and responsive Web
+                Applications.
               </Typography>
               <Stack
                 spacing={3}
@@ -85,11 +104,29 @@ export default function Header() {
                 mt={4}
                 justifyContent={{ xs: "center", md: "start" }}
               >
-                <Button variant="outlined" sx={{ color: "#1687A7" }}>
+                <Button
+                  variant="outlined"
+                  href="./ek_cv.pdf"
+                  target="_blank"
+                  sx={{ color: "#1687A7" }}
+                  alt="Eugene Kasimov's Resume"
+                >
                   RESUME
                 </Button>
-                <LinkedInIcon fontSize="large" sx={{ color: "#1687A7" }} />
-                <GitHubIcon fontSize="large" sx={{ color: "#1687A7" }} />
+                <Link
+                  href="https://www.linkedin.com/in/eugene-kasimov-aa031136/"
+                  target="_blank"
+                  alt="Linkedin"
+                >
+                  <LinkedInIcon fontSize="large" sx={{ color: "#1687A7" }} />
+                </Link>
+                <Link
+                  href="https://github.com/ekasimov1"
+                  target="_blank"
+                  alt="GitHub"
+                >
+                  <GitHubIcon fontSize="large" sx={{ color: "#1687A7" }} />
+                </Link>
               </Stack>
             </Grid>
           </Grid>

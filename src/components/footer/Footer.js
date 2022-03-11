@@ -5,8 +5,15 @@ import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 
 export default function Footer() {
+  const currentYear = new Date().getFullYear();
+
   return (
-    <Box sx={{ backgroundColor: "#D3E0EA" }}>
+    <Box
+      id="footer"
+      sx={{
+        backgroundColor: "#276678",
+      }}
+    >
       <Container>
         <Grid
           container
@@ -16,8 +23,8 @@ export default function Footer() {
           minHeight={{ xs: "80px", md: "100px" }}
         >
           <Grid item>
-            <Typography variant="caption">
-              Developed by Eugene Kasimov. Copyright 2022
+            <Typography variant="subtitle1" color="#F6F5F5">
+              Developed by Eugene Kasimov. Copyright {currentYear}
             </Typography>
           </Grid>
         </Grid>

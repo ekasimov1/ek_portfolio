@@ -17,3 +17,20 @@ body {
     transform: translateY(3px);
   }
 }
+
+.skills-icon {
+  width: auto;
+  max-height: 50%;
+  margin-top: 0.8rem;
+}
+
+.projects-image {
+  width: 90%;
+}
+
+.box-module {
+  border: 1px solid #f6f5f5;
+  border-radius: 10px;
+  box-shadow: 0px 0px 20px #f6f5f5;
+}
+
